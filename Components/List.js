@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styled from "styled-components";
 import useSWR from "swr";
 
 export default function List() {
@@ -11,23 +12,31 @@ export default function List() {
   if (isLoading) return <div>loading...</div>;
 
   return (
-    <ul>
+    <GalleryList>
       {data.map((card, id) => {
         return (
-          <li key={id}>
+          <ArtPreview key={id}>
             <Image
               src={card.imageSource}
               alt={card.name}
-              height={300}
-              width={700}
+              height={150}
+              width={350}
             />
-            ;
-            <p>
-              {card.name} by {card.artist}
-            </p>
-          </li>
+            {card.name} by {card.artist}
+          </ArtPreview>
         );
       })}
-    </ul>
+    </GalleryList>
   );
 }
+
+const GalleryList = styled.ul`
+  list-style-type: none;
+`;
+
+const ArtPreview = styled.li`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 30px;
+`;
