@@ -1,7 +1,17 @@
 export default function HomePage() {
+import swr from "swr";
+
+
+
   return (
-    <div>
-      <h1>Hello from Next.js</h1>
-    </div>
+    <>
+      <main>
+        <h1>Art Gallery</h1> {/* This should be a Component */}
+        
+      </main>
+      <footer>
+        {/* This should be a Component */}
+      </footer>
+    </>
   );
 }
