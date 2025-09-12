@@ -1,8 +1,9 @@
 import Image from "next/image";
+import styled from "styled-components";
 
 export default function Spotlight({ artPiece }) {
   return (
-    <div>
+    <Wrapper>
       <Image
         src={artPiece.imageSource}
         alt={artPiece.name}
@@ -10,6 +11,13 @@ export default function Spotlight({ artPiece }) {
         width={350}
       />
       {artPiece.artist}
-    </div>
+    </Wrapper>
   );
 }
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+`
+
