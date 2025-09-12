@@ -1,6 +1,7 @@
 import Spotlight from "@/Components/Spotlight";
 import Link from "next/link";
 import styled from "styled-components";
+import Navigation from "@/Components/Navigation";
 
 export default function HomePage({ artPieces }) {
   const randomIndex = Math.floor(Math.random() * artPieces.length);
@@ -10,7 +11,6 @@ export default function HomePage({ artPieces }) {
   return (
     <>
       <Main>
-        <GoBack href={"/overview"}> ← Go to overview</GoBack>
         <Spotlight artPiece={artPiece} />
       </Main>
     </>
@@ -24,4 +24,4 @@ const GoBack = styled(Link)`
 
 const Main = styled.main`
   margin: 30px;
-`
+`;

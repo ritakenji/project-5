@@ -1,5 +1,6 @@
-import { useState } from "react";
 import GlobalStyle from "../styles";
+import Layout from "@/Components/Layout";
+import Navigation from "@/Components/Navigation";
 
 import useSWR from "swr";
 
@@ -14,8 +15,11 @@ export default function App({ Component, pageProps }) {
   if (isLoading) return <div>loading...</div>;
   return (
     <>
+   {/*  <Layout> */}
       <GlobalStyle />
       <Component {...pageProps}  artPieces={data} />
+      <Navigation />
+   {/*  </Layout> */}
     </>
   );
 }
