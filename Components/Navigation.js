@@ -6,7 +6,7 @@ export default function Navigation() {
     <>
       <NavBar>
         <NavLinks href={"/"}>Spotlight</NavLinks>
-        <NavLinks href={"/overview"}>Art Pieces</NavLinks>
+        <NavLinks href={"/art-pieces"}>Art Pieces</NavLinks>
         <NavLinks href={"/favorites"}>Favorites</NavLinks>
       </NavBar>
     </>
