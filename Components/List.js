@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ArtPieceCard from "./ArtPieceCard";
 
-export default function List({artPieces}) {
+export default function List({artPieces, card}) {
   
   return (
     <GalleryList>

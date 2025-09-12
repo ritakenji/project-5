@@ -15,9 +15,8 @@ export default function Spotlight({ artPiece }) {
   );
 }
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-`
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+`;
