@@ -1,37 +1,27 @@
+import Spotlight from "@/Components/Spotlight";
+import Link from "next/link";
 import styled from "styled-components";
-import List from "@/Components/List";
 
-/* 
-******** Acceptance Criteria
+export default function HomePage({ artPieces }) {
+  const randomIndex = Math.floor(Math.random() * artPieces.length);
 
-All art pieces are displayed in a list.✅ 
+  const artPiece = artPieces[randomIndex];
 
-Each art piece's image is displayed.✅ 
-
-Each art piece's title is displayed.✅ 
-
-Each art piece's artist's name is displayed.✅ 
-
-**********Tasks
-
-Create a component to render the list of art pieces.✅ 
-
-Create a component to render each Art Piece Preview. ✅
-
-*/
-
-export default function HomePage() {
   return (
     <>
-      <main>
-        <Title>Art Gallery</Title> {/* This should be a Component?? */}
-        <List />
-      </main>
-      <footer>{/* This should be a Component */}</footer>
+      <Main>
+        <GoBack href={"/overview"}> ← Go to overview</GoBack>
+        <Spotlight artPiece={artPiece} />
+      </Main>
     </>
   );
 }
 
-const Title = styled.h1`
-  text-align: center;
+const GoBack = styled(Link)`
+  text-decoration: none;
+  color: #000;
 `;
+
+const Main = styled.main`
+  margin: 30px;
+`
