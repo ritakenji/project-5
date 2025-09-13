@@ -2,11 +2,15 @@ import { useRouter } from "next/router";
 import DetailCard from "@/Components/DetailCard";
 import Image from "next/image";
 
-export default function DetailPiece({ artPieces }) {
+export default function DetailPiece({
+  data,
+  handleToggleFavorite,
+  isFavorite,
+}) {
   const router = useRouter();
   const { slug } = router.query;
 
-  const card = artPieces.find((piece) => piece.slug === slug);
+  const artPiece = data.find((element) => element.slug === slug);
 
   function handleReturnToPage() {
     router.push(`/art-pieces`);
@@ -17,7 +21,11 @@ export default function DetailPiece({ artPieces }) {
       <button onClick={handleReturnToPage}>
         <Image src="/arrow-left.png" alt="Go Back" height={30} width={30} />
       </button>
-      <DetailCard card={card} />
+      <DetailCard
+        artPiece={artPiece}
+        handleToggleFavorite={handleToggleFavorite}
+        isFavorite={isFavorite}
+      />
     </>
   );
 }

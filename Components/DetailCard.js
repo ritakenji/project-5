@@ -1,20 +1,27 @@
 import Image from "next/image";
 import styled from "styled-components";
+import FavoriteButton from "./FavoriteButton";
 
-export default function DetailCard({ card }) {
-  console.log("fff", card);
-
+export default function DetailCard({
+  artPiece,
+  handleToggleFavorite,
+  isFavorite,
+}) {
   return (
     <>
       <Card>
+        <FavoriteButton
+          handleToggleFavorite={handleToggleFavorite}
+          artPiece={artPiece}
+          isFavorite={isFavorite}
+        />
         <Image
-          src={card.imageSource}
-          alt={card.name}
+          src={artPiece.imageSource}
+          alt={artPiece.name}
           height={150}
           width={350}
         />
-
-        {card.name} by {card.artist}, {card.year}, {card.genre}
+        {artPiece.name} by {artPiece.artist}, {artPiece.year}, {artPiece.genre}
       </Card>
     </>
   );

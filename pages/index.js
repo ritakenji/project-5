@@ -1,16 +1,20 @@
+import ArtPieceCard from "@/Components/ArtPieceCard";
 import Spotlight from "@/Components/Spotlight";
-import Link from "next/link";
 import styled from "styled-components";
 
-export default function HomePage({ artPieces }) {
-  const randomIndex = Math.floor(Math.random() * artPieces.length);
+export default function HomePage({ data, handleToggleFavorite, isFavorite }) {
+  const randomIndex = Math.floor(Math.random() * data.length);
 
-  const artPiece = artPieces[randomIndex];
+  const randomArtPiece = data[randomIndex];
 
   return (
     <>
       <Main>
-        <Spotlight artPiece={artPiece} />
+        <ArtPieceCard
+          artPiece={randomArtPiece}
+          handleToggleFavorite={handleToggleFavorite}
+          isFavorite={isFavorite}
+        />
       </Main>
     </>
   );

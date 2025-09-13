@@ -1,12 +1,18 @@
 import styled from "styled-components";
 import ArtPieceCard from "./ArtPieceCard";
 
-export default function List({artPieces, card}) {
-  
+export default function List({ data, handleToggleFavorite, isFavorite }) {
   return (
     <GalleryList>
-      {artPieces?.map((card, id) => {
-        return <ArtPieceCard key={id} card={card} />;
+      {data?.map((artPiece) => {
+        return (
+          <ArtPieceCard
+            key={artPiece.slug}
+            artPiece={artPiece}
+            handleToggleFavorite={handleToggleFavorite}
+            isFavorite={isFavorite}
+          />
+        );
       })}
     </GalleryList>
   );

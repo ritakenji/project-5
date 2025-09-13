@@ -1,17 +1,21 @@
 import styled from "styled-components";
 import List from "@/Components/List";
 
-
-export default function Overview({artPieces, card}) {
-  console.log("Art: ", artPieces);
-  
+export default function Overview({
+  data,
+  handleToggleFavorite,
+  isFavorite,
+}) {
   return (
     <>
       <main>
-        <Title>Art Gallery</Title> {/* This should be a Component?? */}
-        <List artPieces={artPieces}/>
+        <Title>Art Gallery</Title> 
+        <List
+          data={data}
+          handleToggleFavorite={handleToggleFavorite}
+          isFavorite={isFavorite}
+        />
       </main>
-      <footer>{/* This should be a Component */}</footer>
     </>
   );
 }

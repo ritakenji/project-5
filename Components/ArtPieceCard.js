@@ -1,20 +1,32 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
+import FavoriteButton from "@/Components/FavoriteButton";
 
-export default function ArtPieceCard({ card }) {
+export default function ArtPieceCard({
+  artPiece,
+  handleToggleFavorite,
+  isFavorite,
+}) {
   return (
-    <Link href={`/art-pieces/${card.slug}`}>
-      <Card>
-        <Image
-          src={card.imageSource}
-          alt={card.name}
-          height={150}
-          width={350}
-        />
-        {card.name} by {card.artist}
-      </Card>
-    </Link>
+    <>
+      <FavoriteButton
+        handleToggleFavorite={handleToggleFavorite}
+        artPiece={artPiece.slug}
+        isFavorite={isFavorite}
+      />
+      <Link href={`/art-pieces/${artPiece.slug}`}>
+        <Card>
+          <Image
+            src={artPiece.imageSource}
+            alt={artPiece.name}
+            height={150}
+            width={350}
+          />
+          {artPiece.name} by {artPiece.artist}
+        </Card>
+      </Link>
+    </>
   );
 }
 
