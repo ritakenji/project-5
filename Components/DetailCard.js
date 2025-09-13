@@ -13,6 +13,7 @@ export default function DetailCard({ card }) {
           height={150}
           width={350}
         />
+
         {card.name} by {card.artist}, {card.year}, {card.genre}
       </Card>
     </>
