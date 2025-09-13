@@ -2,7 +2,7 @@ import styled from "styled-components";
 import List from "@/Components/List";
 
 
-export default function Overview({artPieces}) {
+export default function Overview({artPieces, card}) {
   console.log("Art: ", artPieces);
   
   return (
