@@ -7,6 +7,7 @@ export default function ArtPieceCard({
   artPiece,
   handleToggleFavorite,
   isFavorite,
+  children,
 }) {
   return (
     <>
@@ -16,23 +17,16 @@ export default function ArtPieceCard({
         isFavorite={isFavorite}
       />
       <Link href={`/art-pieces/${artPiece.slug}`}>
-        <Card>
+        <>
           <Image
             src={artPiece.imageSource}
             alt={artPiece.name}
-            height={150}
+            height={450}
             width={350}
           />
-          {artPiece.name} by {artPiece.artist}
-        </Card>
+          <p>{children}</p>
+        </>
       </Link>
     </>
   );
 }
-
-const Card = styled.li`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-bottom: 30px;
-`;

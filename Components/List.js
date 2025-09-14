@@ -12,7 +12,9 @@ export default function List({ data, handleToggleFavorite, isSlugFavorite }) {
             artPiece={artPiece}
             handleToggleFavorite={handleToggleFavorite}
             isFavorite={isFavorite}
-          />
+          >
+            {artPiece.name} by {artPiece.artist}
+          </ArtPieceCard>
         );
       })}
     </GalleryList>

@@ -1,5 +1,5 @@
 import ArtPieceCard from "@/Components/ArtPieceCard";
-import styled from "styled-components";
+import MainTitle from "@/Components/MainTitle";
 
 export default function HomePage({ data, handleToggleFavorite, isFavorite }) {
   const randomIndex = Math.floor(Math.random() * data.length);
@@ -8,17 +8,14 @@ export default function HomePage({ data, handleToggleFavorite, isFavorite }) {
 
   return (
     <>
-      <Main>
-        <ArtPieceCard
-          artPiece={randomArtPiece}
-          handleToggleFavorite={handleToggleFavorite}
-          isFavorite={isFavorite}
-        />
-      </Main>
+      <MainTitle />
+      <ArtPieceCard
+        artPiece={randomArtPiece}
+        handleToggleFavorite={handleToggleFavorite}
+        isFavorite={isFavorite}
+      >
+        {randomArtPiece.artist}
+      </ArtPieceCard>
     </>
   );
 }
-
-const Main = styled.main`
-  margin: 30px;
-`;

@@ -1,5 +1,6 @@
 import GlobalStyle from "../styles";
 import Navigation from "@/Components/Navigation";
+import Layout from "@/Components/Layout";
 import { useState } from "react";
 
 import useSWR from "swr";
@@ -46,13 +47,15 @@ export default function App({ Component, pageProps }) {
    */
   return (
     <>
-      <GlobalStyle />
-      <Component
-        {...pageProps}
-        data={data}
-        handleToggleFavorite={handleToggleFavorite}
-        isSlugFavorite={isSlugFavorite}
-      />
+      <Layout>
+        <GlobalStyle />
+        <Component
+          {...pageProps}
+          data={data}
+          handleToggleFavorite={handleToggleFavorite}
+          isSlugFavorite={isSlugFavorite}
+        />
+      </Layout>
       <Navigation />
     </>
   );

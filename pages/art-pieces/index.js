@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import MainTitle from "@/Components/MainTitle";
 import List from "@/Components/List";
 
 export default function Overview({
@@ -8,18 +8,12 @@ export default function Overview({
 }) {
   return (
     <>
-      <main>
-        <Title>Art Gallery</Title>
-        <List
-          data={data}
-          handleToggleFavorite={handleToggleFavorite}
-          isSlugFavorite={isSlugFavorite}
-        />
-      </main>
+      <MainTitle />
+      <List
+        data={data}
+        handleToggleFavorite={handleToggleFavorite}
+        isSlugFavorite={isSlugFavorite}
+      />
     </>
   );
 }
-
-const Title = styled.h1`
-  text-align: center;
-`;
