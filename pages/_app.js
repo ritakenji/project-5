@@ -14,40 +14,36 @@ export default function App({ Component, pageProps }) {
   );
 
   function handleToggleFavorite(slug) {
-    // We need to know the slug of the artpiece that we clicked on.
-    // The initial state of artInfo is an empty array.
-    // We need to search if the slug of the artPiece that we clicked is in artInfo.
-    // If the slug is found, we need to change the state of isFavorite.
-    // If the slug is not found, we need to add this artpiece as favorite. {slug, isFavorite}
+    setArtInfo((currentArtInfo) => {
+      // Find the item with the matching slug
+      const foundArt = currentArtInfo.find((item) => item.slug === slug);
 
-    // In the setter function, we can pass a function that return the new value to be set.
-    setArtInfo(() => {
-      // find() will return us the element or undefine.
-      const findArt = artInfo.find((element) => element.slug === data.slug);
-
-      if (findArt) {
-        // If we find the art piece.
-        // We want to change the state of isFavorite.
-        return artInfo.map((element) =>
-          element.slug === data.slug
-            ? { ...element, isFavorite: !element.isFavorite }
-            : element
+      if (foundArt) {
+        // If the item exists, map over the array and toggle its isFavorite status
+        return currentArtInfo.map((item) =>
+          item.slug === slug ? { ...item, isFavorite: !item.isFavorite } : item
         );
+      } else {
+        // If the item doesn't exist, add it to the array with isFavorite: true
+        return [...currentArtInfo, { slug, isFavorite: true }];
       }
-      // If we didn't find the art piece, we want to add it.
-      return [...artInfo, { slug, isFavorite: true }];
     });
+  }
+
+  // A helper function to check if a specific slug is favorited
+  function isSlugFavorite(slug) {
+    return artInfo.find((item) => item.slug === slug)?.isFavorite || false;
   }
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
-  const isSlugIdInArtInfo = artInfo.find(
+  /*   const isSlugIdInArtInfo = artInfo.find(
     (element) => element.slug === data.slug
-  );
+  ); */
 
-  const isFavorite = isSlugIdInArtInfo ? isSlugIdInArtInfo.isFavorite : false;
-
+  /*   const isFavorite = isSlugIdInArtInfo ? isSlugIdInArtInfo.isFavorite : false;
+   */
   return (
     <>
       <GlobalStyle />
@@ -55,7 +51,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         data={data}
         handleToggleFavorite={handleToggleFavorite}
-        isFavorite={isFavorite}
+        isSlugFavorite={isSlugFavorite}
       />
       <Navigation />
     </>

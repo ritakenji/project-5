@@ -4,16 +4,16 @@ import List from "@/Components/List";
 export default function Overview({
   data,
   handleToggleFavorite,
-  isFavorite,
+  isSlugFavorite,
 }) {
   return (
     <>
       <main>
-        <Title>Art Gallery</Title> 
+        <Title>Art Gallery</Title>
         <List
           data={data}
           handleToggleFavorite={handleToggleFavorite}
-          isFavorite={isFavorite}
+          isSlugFavorite={isSlugFavorite}
         />
       </main>
     </>

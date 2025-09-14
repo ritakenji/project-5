@@ -5,12 +5,13 @@ import Image from "next/image";
 export default function DetailPiece({
   data,
   handleToggleFavorite,
-  isFavorite,
+  isSlugFavorite,
 }) {
   const router = useRouter();
   const { slug } = router.query;
 
   const artPiece = data.find((element) => element.slug === slug);
+  const isFavorite = isSlugFavorite(artPiece.slug); 
 
   function handleReturnToPage() {
     router.push(`/art-pieces`);
