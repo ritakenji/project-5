@@ -18,23 +18,23 @@ export default function App({ Component, pageProps }) {
     // The initial state of artInfo is an empty array.
     // We need to search if the slug of the artPiece that we clicked is in artInfo.
     // If the slug is found, we need to change the state of isFavorite.
-    // If the slug is not found, we need to add this art*iece as favorite. {slug, isFavorite}
+    // If the slug is not found, we need to add this artpiece as favorite. {slug, isFavorite}
 
     // In the setter function, we can pass a function that return the new value to be set.
     setArtInfo(() => {
       // find() will return us the element or undefine.
-      const findArt = artInfo.find((element) => element.slug === slug);
+      const findArt = artInfo.find((element) => element.slug === data.slug);
 
       if (findArt) {
         // If we find the art piece.
         // We want to change the state of isFavorite.
         return artInfo.map((element) =>
-          element.slug === slug
+          element.slug === data.slug
             ? { ...element, isFavorite: !element.isFavorite }
             : element
         );
       }
-      // If we didn't find the joke, we want to add it.
+      // If we didn't find the art piece, we want to add it.
       return [...artInfo, { slug, isFavorite: true }];
     });
   }
@@ -42,7 +42,9 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
-  const isSlugIdInArtInfo = artInfo.find((element) => element.slug === slug);
+  const isSlugIdInArtInfo = artInfo.find(
+    (element) => element.slug === data.slug
+  );
 
   const isFavorite = isSlugIdInArtInfo ? isSlugIdInArtInfo.isFavorite : false;
 

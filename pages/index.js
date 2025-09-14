@@ -1,5 +1,4 @@
 import ArtPieceCard from "@/Components/ArtPieceCard";
-import Spotlight from "@/Components/Spotlight";
 import styled from "styled-components";
 
 export default function HomePage({ data, handleToggleFavorite, isFavorite }) {
