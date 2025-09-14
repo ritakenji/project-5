@@ -13,9 +13,12 @@ export default function Overview({
     <>
       <main>
         <Title>Art Gallery</Title> {/* This should be a Component?? */}
-        <List artPieces={artPieces} slug={artPieces.slug}
+        <List
+          artPieces={artPieces}
+          slug={artPieces.slug}
           onToggleFavorite={onToggleFavorite}
-          favorites={favorites}/>
+          favorites={favorites}
+        />
       </main>
       <footer>{/* This should be a Component */}</footer>
     </>

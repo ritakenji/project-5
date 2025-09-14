@@ -1,7 +1,6 @@
 import Spotlight from "@/Components/Spotlight";
 import styled from "styled-components";
 
-
 export default function HomePage({
   slug,
   favorites,
