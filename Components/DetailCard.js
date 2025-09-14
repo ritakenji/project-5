@@ -12,7 +12,7 @@ export default function DetailCard({
       <Card>
         <FavoriteButton
           handleToggleFavorite={handleToggleFavorite}
-          artPiece={artPiece}
+          artPiece={artPiece.slug}
           isFavorite={isFavorite}
         />
         <Image
