@@ -1,8 +1,13 @@
 import Spotlight from "@/Components/Spotlight";
-import Link from "next/link";
 import styled from "styled-components";
 
-export default function HomePage({ artPieces }) {
+
+export default function HomePage({
+  slug,
+  favorites,
+  onToggleFavorite,
+  artPieces,
+}) {
   const randomIndex = Math.floor(Math.random() * artPieces.length);
 
   const artPiece = artPieces[randomIndex];
@@ -10,7 +15,12 @@ export default function HomePage({ artPieces }) {
   return (
     <>
       <Main>
-        <Spotlight artPiece={artPiece} />
+        <Spotlight
+          artPiece={artPiece}
+          slug={artPiece.slug}
+          onToggleFavorite={onToggleFavorite}
+          favorites={favorites}
+        />
       </Main>
     </>
   );

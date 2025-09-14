@@ -1,7 +1,13 @@
 import Image from "next/image";
 import styled from "styled-components";
+import FavoriteButton from "./FavoriteButton/FavoriteButton";
 
-export default function DetailCard({ card }) {
+export default function DetailCard({
+  card,
+  slug,
+  favorites,
+  onToggleFavorite,
+}) {
   console.log("fff", card);
 
   return (
@@ -15,6 +21,11 @@ export default function DetailCard({ card }) {
         />
         {card.name} by {card.artist}, {card.year}, {card.genre}
       </Card>
+      <FavoriteButton
+        slug={card.slug}
+        onToggleFavorite={onToggleFavorite}
+        favorites={favorites}
+      />
     </>
   );
 }

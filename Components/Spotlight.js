@@ -1,7 +1,13 @@
 import Image from "next/image";
 import styled from "styled-components";
+import FavoriteButton from "@/Components/FavoriteButton/FavoriteButton";
 
-export default function Spotlight({ artPiece }) {
+export default function Spotlight({
+  artPiece,
+  slug,
+  favorites,
+  onToggleFavorite,
+}) {
   return (
     <Wrapper>
       <Image
@@ -11,6 +17,11 @@ export default function Spotlight({ artPiece }) {
         width={350}
       />
       {artPiece.artist}
+      <FavoriteButton
+        slug={artPiece.slug}
+        onToggleFavorite={onToggleFavorite}
+        favorites={favorites}
+      />
     </Wrapper>
   );
 }
