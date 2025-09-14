@@ -16,17 +16,21 @@ export default function ArtPieceCard({
         artPiece={artPiece.slug}
         isFavorite={isFavorite}
       />
-      <Link href={`/art-pieces/${artPiece.slug}`}>
-        <>
-          <Image
-            src={artPiece.imageSource}
-            alt={artPiece.name}
-            height={450}
-            width={350}
-          />
-          <p>{children}</p>
-        </>
-      </Link>
+      <Linked href={`/art-pieces/${artPiece.slug}`}>
+        <Image
+          src={artPiece.imageSource}
+          alt={artPiece.name}
+          height={450}
+          width={350}
+        />
+        <p>{children}</p>
+      </Linked>
     </>
   );
 }
+
+const Linked = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

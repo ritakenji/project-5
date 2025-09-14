@@ -38,11 +38,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  margin-top: 6vh;
 `;
 
 const GoBackButton = styled.button`
   background-color: transparent;
   border: none;
-  align-self: flex-start;
 `;
