@@ -44,7 +44,3 @@ export default function Favorites({
 const FavoritesList = styled.ul`
   margin-bottom: 5rem;
 `;
-
-const Title = styled.h1`
-  text-align: center;
-`;
