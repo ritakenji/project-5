@@ -1,12 +1,9 @@
 import GlobalStyle from "../styles";
 import Navigation from "@/Components/Navigation";
-import { useState } from "react";
 
 import useSWR from "swr";
 
 export default function App({ Component, pageProps }) {
-  const [favorites, setFavorites] = useState([]);
-
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
     `https://example-apis.vercel.app/api/art`,
@@ -16,24 +13,10 @@ export default function App({ Component, pageProps }) {
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
-
-  function handleToggleFavorite(slug) {
-    setFavorites(
-      favorites.includes(slug)
-        ? favorites.filter((item) => item !== slug)
-        : [...favorites, slug]
-    );
-  }
-
   return (
     <>
       <GlobalStyle />
-      <Component
-        {...pageProps}
-        artPieces={data}
-        onToggleFavorite={handleToggleFavorite}
-        favorites={favorites}
-      />
+      <Component {...pageProps} artPieces={data} />
       <Navigation />
     </>
   );
