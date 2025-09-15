@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import HomePage from "./index";
+import HomePage from "@/pages";
 
 const mockArtPieces = [
   {
@@ -42,5 +42,5 @@ test("renders favorite button", () => {
       isFavorite={() => false}
     />
   );
-  expect(screen.getByRole("button", { name: /favorite/i })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /favorite/i })).toBeInTheDocument();   
 });

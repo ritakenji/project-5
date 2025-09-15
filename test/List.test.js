@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import List from "./List";
+import List from "@/Components/List";
 
 const mockArtPieces = [
   {
