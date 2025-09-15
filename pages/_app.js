@@ -53,6 +53,7 @@ export default function App({ Component, pageProps }) {
         <Component
           {...pageProps}
           artPieces={data}
+          artInfo={artInfo}
           handleToggleFavorite={handleToggleFavorite}
           isSlugFavorite={isSlugFavorite}
         />
