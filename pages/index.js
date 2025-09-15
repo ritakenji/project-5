@@ -1,3 +1,5 @@
+index:
+
 import ArtPieceCard from "@/Components/ArtPieceCard";
 import MainTitle from "@/Components/MainTitle";
 

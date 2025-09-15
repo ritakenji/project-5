@@ -2,7 +2,6 @@ import GlobalStyle from "../styles";
 import Navigation from "@/Components/Navigation";
 import Layout from "@/Components/Layout";
 import { useState } from "react";
-
 import useSWR from "swr";
 
 export default function App({ Component, pageProps }) {
