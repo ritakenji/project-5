@@ -3,7 +3,7 @@ import List from "@/Components/List";
 import styled from "styled-components";
 
 export default function Overview({
-  data,
+  artPieces,
   handleToggleFavorite,
   isSlugFavorite,
 }) {
@@ -11,7 +11,7 @@ export default function Overview({
     <Wrapper>
       <MainTitle />
       <List
-        data={data}
+        artPieces={artPieces}
         handleToggleFavorite={handleToggleFavorite}
         isSlugFavorite={isSlugFavorite}
       />

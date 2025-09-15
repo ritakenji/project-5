@@ -15,6 +15,7 @@ export default function App({ Component, pageProps }) {
   );
 
   function handleToggleFavorite(slug) {
+    console.log("handletogglefav in app: ", slug);
     setArtInfo((currentArtInfo) => {
       // Find the item with the matching slug
       const foundArt = currentArtInfo.find((item) => item.slug === slug);
@@ -51,7 +52,7 @@ export default function App({ Component, pageProps }) {
         <GlobalStyle />
         <Component
           {...pageProps}
-          data={data}
+          artPieces={data}
           handleToggleFavorite={handleToggleFavorite}
           isSlugFavorite={isSlugFavorite}
         />

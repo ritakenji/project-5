@@ -1,10 +1,10 @@
 import ArtPieceCard from "@/Components/ArtPieceCard";
 import MainTitle from "@/Components/MainTitle";
 
-export default function HomePage({ data, handleToggleFavorite, isFavorite }) {
-  const randomIndex = Math.floor(Math.random() * data.length);
+export default function HomePage({ artPieces, handleToggleFavorite, isFavorite }) {
+  const randomIndex = Math.floor(Math.random() * artPieces.length);
 
-  const randomArtPiece = data[randomIndex];
+  const randomArtPiece = artPieces[randomIndex];
 
   return (
     <>

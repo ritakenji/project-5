@@ -4,14 +4,14 @@ import Image from "next/image";
 import styled from "styled-components";
 
 export default function DetailPiece({
-  data,
+  artPieces,
   handleToggleFavorite,
   isSlugFavorite,
 }) {
   const router = useRouter();
   const { slug } = router.query;
 
-  const artPiece = data.find((element) => element.slug === slug);
+  const artPiece = artPieces.find((element) => element.slug === slug);
   const isFavorite = isSlugFavorite(artPiece.slug);
 
   function handleReturnToPage() {

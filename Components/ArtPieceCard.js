@@ -13,7 +13,7 @@ export default function ArtPieceCard({
     <>
       <FavoriteButton
         handleToggleFavorite={handleToggleFavorite}
-        artPiece={artPiece.slug}
+        slug={artPiece.slug}
         isFavorite={isFavorite}
       />
       <Linked href={`/art-pieces/${artPiece.slug}`}>
