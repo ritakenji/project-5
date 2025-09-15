@@ -1,15 +1,19 @@
 import ArtPieceCard from "@/Components/ArtPieceCard";
 import styled from "styled-components";
-export default function Favorites({ favorites, onToggleFavorite, artPieces }) {
+export default function Favorites({
+  isSlugFavorite,
+  onToggleFavorite,
+  artPieces,
+}) {
   return (
     <FavoritesList>
-        <Title>Favorites</Title>
+      <Title>Favorites</Title>
       {artPieces.map((artPiece) => (
         <ArtPieceCard
           key={artPiece.slug}
           card={artPiece}
           onToggleFavorite={onToggleFavorite}
-          favorites={favorites}
+          isSlugFavorite={isSlugFavorite}
         />
       ))}
     </FavoritesList>
@@ -17,9 +21,9 @@ export default function Favorites({ favorites, onToggleFavorite, artPieces }) {
 }
 
 const FavoritesList = styled.ul`
-    margin-bottom: 5rem;
-`
+  margin-bottom: 5rem;
+`;
 
 const Title = styled.h1`
-    text-align: center;
-`
+  text-align: center;
+`;
