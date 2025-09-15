@@ -20,7 +20,7 @@ export default function DetailPiece({
 
   return (
     <Wrapper>
-      <GoBackButton onClick={handleReturnToPage}>
+      <GoBackButton aria-label="go-back" onClick={handleReturnToPage}>
         <Image src="/arrow-left.png" alt="Go Back" height={30} width={30} />
       </GoBackButton>
       <ArtPieceCard
