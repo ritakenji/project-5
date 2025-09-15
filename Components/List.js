@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import ArtPieceCard from "./ArtPieceCard";
 
-export default function List({ artPieces, favorites, onToggleFavorite }) {
+export default function List({ artPieces, handleToggleFavorite, isSlugFavorite }) {
   return (
     <GalleryList>
-      {artPieces?.map((card, id) => {
+      {artPieces?.map((artPiece) => {
+        const isFavorite = isSlugFavorite(artPiece.slug);
         return (
           <ArtPieceCard
-            key={id}
-            card={card}
-            slug={artPieces.slug}
-            onToggleFavorite={onToggleFavorite}
-            favorites={favorites}
-          />
+            key={artPiece.slug}
+            artPiece={artPiece}
+            handleToggleFavorite={handleToggleFavorite}
+            isFavorite={isFavorite}
+          >
+            {artPiece.name} by {artPiece.artist}
+          </ArtPieceCard>
         );
       })}
     </GalleryList>
@@ -21,5 +23,4 @@ export default function List({ artPieces, favorites, onToggleFavorite }) {
 
 const GalleryList = styled.ul`
   list-style-type: none;
-  margin-bottom: 5rem;
 `;

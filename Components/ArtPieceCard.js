@@ -1,39 +1,36 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
-import FavoriteButton from "./FavoriteButton/FavoriteButton";
+import FavoriteButton from "@/Components/FavoriteButton";
 
 export default function ArtPieceCard({
-  card,
-  favorites,
-  slug,
-  onToggleFavorite,
+  artPiece,
+  handleToggleFavorite,
+  isFavorite,
+  children,
 }) {
   return (
     <>
-      <Link href={`/art-pieces/${card.slug}`}>
-        <Card>
-          <Image
-            src={card.imageSource}
-            alt={card.name}
-            height={150}
-            width={350}
-          />
-          {card.name} by {card.artist}
-        </Card>
-      </Link>
       <FavoriteButton
-        slug={card.slug}
-        onToggleFavorite={onToggleFavorite}
-        favorites={favorites}
+        handleToggleFavorite={handleToggleFavorite}
+        slug={artPiece.slug}
+        isFavorite={isFavorite}
       />
+      <Linked href={`/art-pieces/${artPiece.slug}`}>
+        <Image
+          src={artPiece.imageSource}
+          alt={artPiece.name}
+          height={450}
+          width={350}
+        />
+        <p>{children}</p>
+      </Linked>
     </>
   );
 }
 
-const Card = styled.li`
+const Linked = styled(Link)`
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin: 15px 0;
+  align-items: center;
 `;
