@@ -23,7 +23,8 @@ export default function ArtPieceCard({
           height={450}
           width={350}
         />
-        <p>{children}</p>
+        {children}
+        {/*  // initially <p>{children}</p> but then this makes it hard to stylize whatever {children} is, the <p> should be used only where the {children} are being declared, like in 'favorites.js' */}
       </Linked>
     </>
   );
